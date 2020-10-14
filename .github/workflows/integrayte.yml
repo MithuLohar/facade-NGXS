@@ -2,8 +2,8 @@ name: Node Integration
 
 
 on:
-       push:
-              branches: [master]
+       pull_request:
+              branches: [main]
 
 
 jobs:
