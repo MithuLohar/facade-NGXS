@@ -24,19 +24,19 @@ export class BeersService {
     this.baseUrl = this.injector.get(BASE_URL);
   }
 
-  @Dispatch()
+  @Dispatch() //@audit-ok //?dispatch actions
   public getAllBeers() {
     return this.http
-      .get<Beers[]>(`${this.baseUrl}/v2/beer`) // 👈 post man mock server tags
+      .get<Beers[]>(`${this.baseUrl}/v2/beer`) //@audit-issue //? 👈 post man mock server tags
       .pipe(map((beers) => new PersistBeersLoadAction(beers)));
   }
 
-  @Dispatch()
+  @Dispatch() //@audit-ok //?dispatch actions
   public deleteBeers(beers: Beers[]) {
     return new PersistBeersDeleteAction(beers);
   }
 
-  @Dispatch()
+  @Dispatch() //@audit-ok //?dispatch actions
   public editBeer(beers: Beers) {
     return new PersistBeersEditAction(beers);
   }

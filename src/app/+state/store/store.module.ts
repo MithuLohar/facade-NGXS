@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { NgxsDispatchPluginModule } from '@ngxs-labs/dispatch-decorator';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { BASE_URL } from '../tokens';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [],
@@ -16,13 +17,14 @@ import { BASE_URL } from '../tokens';
     NgxsModule.forRoot([BeersState], {
       developmentMode: !environment.production,
     }),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsDispatchPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(), //@audit-ok //todo redux devtool module
+    NgxsDispatchPluginModule.forRoot(), //@audit-ok //todo dispatch Module
+    NgxsLoggerPluginModule.forRoot(), //@audit-ok //todo Logger Module
   ],
   providers: [
     {
       provide: BASE_URL,
-      useValue: 'https://97868f0d-816c-4b6e-a8ba-1ecfc3dd7b6c.mock.pstmn.io', // 👈 postman mock server, copy response from data.json
+      useValue: 'https://97868f0d-816c-4b6e-a8ba-1ecfc3dd7b6c.mock.pstmn.io', //@audit  //? postman mock server
     },
   ],
   exports: [NgxsModule],

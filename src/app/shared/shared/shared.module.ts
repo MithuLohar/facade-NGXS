@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, DesignModule],
-  exports: [DesignModule],
+  imports: [CommonModule, DesignModule], //*import Design Module
+  exports: [DesignModule], //*export Design Module
 })
 export class SharedModule {}
