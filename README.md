@@ -4,7 +4,7 @@
 
 ### clone the repo
 
-![clone](/facade-ngrx.png)
+![clone](/facade-ngxs.png)
 
 ### Http-Server
 
